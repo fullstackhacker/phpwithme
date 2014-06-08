@@ -1,5 +1,10 @@
 <?php
 
+
+
+
+/* Can use the simple inserter given in the easyfiles folder */
+
 /* 
 Configuration Information for Databases and Connections 
 
