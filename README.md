@@ -22,12 +22,12 @@ Usage
 =====
 ###To create a file: 
 
-`easyfiles/makefile.sh <type of file: stylesheet|script|src> <path to the file from there>`
+`easybake/makefile.sh <type of file: stylesheet|script|src> <path to the file from there>`
 
 An example: 
-`easyfiles/makefile.sh stylesheet newcssfile.css`
+`easybake/makefile.sh stylesheet newcssfile.css`
 
 Or: 
-`easyfiles/makefile.sh script me/like/folders/flashything.js`
+`easybake/makefile.sh script me/like/folders/flashything.js`
 
 ###To
