@@ -15,7 +15,9 @@ then
 	exit
 fi
 
+#public folder directory
 public="php_framework/public/$1s"
+
 #check if the file already exists
 if [ -a $public/$2 ] 
 then	
@@ -31,10 +33,13 @@ total=`echo "$2" | tr '/' '\n' | wc -l`
 #seperate directory names
 path=`echo "$2" | tr '/' '\n'`
 
+#counter
 counter=1
 
+#editiable file path 
 newpath=$public
 
+#create the path as you go along if it doesn't exist
 for i in $path
 do 
 	if [ "$counter" -lt "$total" ]
@@ -49,8 +54,26 @@ do
 	fi
 done
 
+#create the file 
 touch $public/$2
 
+#set up the initial source file for the user
+if [ $1 == "src" ]
+then 
+	echo "<?php" >> $public/$2
+	echo "" >> $public/$2
+	echo "" >> $public/$2
+	echo "?>" >> $public/$2
+	echo "<html>" >> $public/$2
+	echo "  <head>" >> $public/$2
+	echo "    <?php require('head.html'); ?>" >> $public/$2
+	echo "  </head>" >> $public/$2
+	echo "  <body>"  >> $public/$2
+	echo "  </body>" >> $public/$2
+	echo "</html>" >> $public/$2
+fi
+
+#check if the file got created
 if [ -a $public/$2 ]
 then
 	echo 'File created successfully!'

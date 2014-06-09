@@ -9,7 +9,7 @@ if [ $1 == '-h' ]
 then 
 	echo ""
 	echo "Usage:"
-	echo "easyfiles/addDb.sh <database_name> <username> <password> <link to the database including port number and such>"
+	echo "easyfiles/addDb.sh <database_name> <username> <password> <link to the database> <port>"
 	echo ""
 	exit
 fi
@@ -19,11 +19,12 @@ database="'$1'"
 username="'$2'"
 password="'$3'"
 link="'$4'"
+port="'$5'"
 
 #config file
 config="php_framework/config/config.php"
 
-#sed -i 's/<?php/<?php {{databaseinf0}}/' $config
-sed -i 's/<?php/<?php\n$_CONFIG["'$database'_CONNSTRING"]='$link';\n$_CONFIG["'$database'_USER"]='$username';\n$_CONFIG["'$database'_PASSWORD"]='$password';\n$_CONFIG["'$database'_DATABASE"]='$database';/' $config
+#add the  database info into the file
+sed -i 's/<?php/<?php\n\n$_CONFIG["'$database'_HOST"]='$link';\n$_CONFIG["'$database'_PORT"]='$port';\n$_CONFIG["'$database'_DATABASE"]='$database';\n$_CONFIG["'$database'_USER"]='$username';\n$_CONFIG["'$database'_PASSWORD"]='$password';\n/' $config
 
 echo "Database Information added succesfully!"
