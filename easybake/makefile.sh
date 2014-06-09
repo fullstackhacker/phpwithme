@@ -1,5 +1,5 @@
 #!/bin/bash
-# $1 = type of file (stylesheets/scripts/src)
+# $1 = type of file (stylesheets/scripts/src/model)
 # $2 = path to the file from there 
 
 #check if user is looking for help
@@ -7,7 +7,7 @@ if [ $1 == '-h' ]
 then
 	echo ''
 	echo 'For use: '
-	echo ' ./easy_site/makefile <stylesheet|script|src> <path-to-file-from-that-folder>'
+	echo ' ./easy_site/makefile <model|stylesheet|script|src> <path-to-file-from-that-folder>'
 	echo ''
 	echo 'Example: '
 	echo ' new stylesheet: ./makefile stylesheet new.css'
@@ -15,8 +15,15 @@ then
 	exit
 fi
 
-#public folder directory
+#set it to the public directory
 public="php_framework/public/$1s"
+
+#check if user is creating model object
+if [ $1 == "model" ] 
+then 
+	#if the user is creating model, change it to the model directory
+	public="php_framework/models"
+fi
 
 #check if the file already exists
 if [ -a $public/$2 ] 
@@ -32,6 +39,10 @@ total=`echo "$2" | tr '/' '\n' | wc -l`
 
 #seperate directory names
 path=`echo "$2" | tr '/' '\n'`
+
+#get the filename
+filename=`echo "$2" | tr '/' '\n' | tail -n 1`
+classname=`echo "$filename" | tr '.' '\n' | head -n 1`
 
 #counter
 counter=1
@@ -71,6 +82,18 @@ then
 	echo "  <body>"  >> $public/$2
 	echo "  </body>" >> $public/$2
 	echo "</html>" >> $public/$2
+fi
+
+if [ $1 == "model" ]
+then 
+	echo "<?php" >> $public/$2
+	echo "  class $classname {" >> $public/$2
+	echo "" >> $public/$2
+	echo "    function __construct(){" >> $public/$2
+	echo "" >> $public/$2
+	echo "    }" >> $public/$2
+	echo "  }" >> $public/$2
+	echo "?>" >> $public/$2
 fi
 
 #check if the file got created
