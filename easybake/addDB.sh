@@ -1,5 +1,5 @@
 #!/bin/bash
-#$2 should be the name of the database
+#$1 should be the name of the database
 #$2 should be the user name to log into the database with 
 #$3 should be the password of the user name for the database
 #$4 should be the link to the database including port number and such

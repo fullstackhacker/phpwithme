@@ -24,10 +24,11 @@ Usage
 
 `easybake/makefile.sh <type of file: stylesheet|script|src> <path to the file from there>`
 
-An example: 
-`easybake/makefile.sh stylesheet newcssfile.css`
+An example: `easybake/makefile.sh stylesheet newcssfile.css`
 
-Or: 
-`easybake/makefile.sh script me/like/folders/flashything.js`
+Or: `easybake/makefile.sh script me/like/folders/flashything.js`
 
-###To
+###To add a database: 
+`easybake/addDB.sh <database_name> <username> <password> <link to the database> <port>`
+
+An example:  `easybake/addDB.sh "myDB" "myUser" "myPass" "localhost" "1234"
