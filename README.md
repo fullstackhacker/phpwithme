@@ -31,4 +31,4 @@ Or: `easybake/makefile.sh script me/like/folders/flashything.js`
 ###To add a database: 
 `easybake/addDB.sh <database_name> <username> <password> <link to the database> <port>`
 
-An example:  `easybake/addDB.sh "myDB" "myUser" "myPass" "localhost" "1234"
+An example:  `easybake/addDB.sh "myDB" "myUser" "myPass" "localhost" "1234"`
