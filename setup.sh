@@ -33,7 +33,6 @@ echo "got the configuration files"
 #get controller files
 cd $dbw/controllers
 cd ../..
-
 echo "got the controller files" 
 
 #get libs files
@@ -41,27 +40,23 @@ cd $dbw/libs
 wget $host/$dbw/libs/scrypt.php
 wget $host/$dbw/libs/jquery-2.1.1.min.js
 cd ../..
-
 echo "got the libs files" 
 
 #get models files 
 cd $dbw/models
 cd ../..
-
 echo "got the models file" 
 
 #get public files
 cd $dbw/public
 wget $host/$dbw/index.php
 cd ../..
-
 echo "got the public files" 
 
 #get public source files
 cd $dbw/public/srcs
 wget $host/$dbw/public/srcs/head.html
 cd ../../..
-
 echo "got the public source files"
 
 #get public stylesheets files 
@@ -69,22 +64,27 @@ cd $dbw/public/stylesheets
 wget $host/$dbw/public/stylesheets/reset.css
 wget $host/$dbw/public/stylesheets/global.css
 cd ../../..
-
 echo "got the stylesheets"
 
 #get public scripts files 
 cd $dbw/public/scripts
 wget $host/$dbw/public/scripts/global.js
 cd ../../..
-
 echo "got the script files"
 
 #get all the easybake files
 cd $eb
-wget $host/$eb/addDB.sh
+wget $host/$eb/adddb.sh
 wget $host/$eb/makefile.sh
+wget $host/$eb/addfieldsto.sh
+wget $host/$eb/addlib.sh
 cd ..
-
 echo "got the easybake files"
 
-echo "done setting up"
+
+echo ""
+echo "Setup Complete!"
+echo "Please run all commands out of this directory:"
+echo `pwd`
+echo "Thank you!"
+echo ""
