@@ -17,8 +17,23 @@ Overview
 
 * easybake/ -  This folder contains a couple of scripts that will help you create and edit files without having to write a single line of php or html
 
-* php_framework/
+* php_framework/ -  This folder contains the entire website
 
+* php_framework/config - This folder contains the configuration files
+
+* php_framework/controller - This folder contains the controller files. Controller files get all the data for the 'View' to display. In this framework, the 'view' folder is known as the 'public' folder
+
+* php_framework/libs -  This folder contains all the php libraries that you want to include
+
+* php_framework/models - This folder contains all the objects 
+
+* php_framework/public - This folder is the publically exposed part of the site - you want to set your DIRECTORYROOT to point at this folder 
+
+* php_frameowrk/public/scripts - This folder contains all your javascript files
+
+* php_framework/public/stylesheets - This folder contains all you stylesheets
+
+* php_framework/public/srcs - This folder contains all php files beside the index.php file that is located in the public directory - Every file in here that is rendered by some sort of backend work (i.e. using a database) should have a counter-part in the controllers folder that does the actual work
 
 Set up/Installation
 -------------------
