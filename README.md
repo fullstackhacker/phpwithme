@@ -12,6 +12,14 @@ A lot of php frameworks out there seem a bit too complicated for someone startin
 
 It also includes a couple of libaries (listed below with links to them) and couple that I wrote that can help a new programmer with creating a dynamic site with users and making it super easy for a new php programmer to just make things work.
 
+Overview
+--------
+
+* easybake/ -  This folder contains a couple of scripts that will help you create and edit files without having to write a single line of php or html
+
+* php_framework/
+
+
 Set up/Installation
 -------------------
 Simply download and run the setup.sh file. It'll get all the proper files and folders
@@ -22,32 +30,45 @@ Simply download and run the setup.sh file. It'll get all the proper files and fo
 Usage
 -----
 ###To create a file: 
-
 `easybake/makefile <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
 
-An example: `easybake/makefile stylesheet newcssfile.css`
+Example(s):
 
-Or: `easybake/makefile script me/like/folders/flashything.js`
+`easybake/makefile stylesheet newcssfile.css`
+
+`easybake/makefile script me/like/folders/flashything.js`
+
+`easybake/makefile controller login.php`
 
 ###To add a database: 
 `easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>`
 
-An example:  `easybake/adddb "MySQL" "myDB" "myUser" "myPass" "localhost" "1234"`
+Example(s):  
+
+`easybake/adddb "MySQL" "myDB" "myUser" "myPass" "localhost" "1234"`
 
 ###To add a library: 
 `easybake/addlib <absolute path to library file>`
 
-An example: `easybake/addlib /home/usr/libraries/thisone.lib`
+Example(s): 
 
-External Libraries
+`easybake/addlib /home/usr/libraries/thisone.php`
+
+
+###To connect to a database: 
+In you php script (should be in the controller)
+
+
+
+Included External Libraries
 ------------------
 jQuery 2.1.1 - 
 
 scrypt.php - 
 
 
-To Do:
+To Do
 ------
 * database.php -  model/lib - both an object and the procedural way to make a database
-  -> user should only have to provide the name of the database they want to connect to (must have added it using easybake/adddb(.sh)) 
+  -> user should only have to provide the name of the database they want to connect to (must have added it using easybake/adddb) 
 * every public/src (source file) that connects to a database or does anything backend and needs to display it out to a user needs to have a corresponding controller/ file
