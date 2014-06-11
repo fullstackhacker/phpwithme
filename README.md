@@ -22,7 +22,7 @@ Usage
 -----
 ###To create a file: 
 
-`easybake/makefile.sh <type of file: model|stylesheet|script|src> <path to the file from there>`
+`easybake/makefile.sh <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
 
 An example: `easybake/makefile.sh stylesheet newcssfile.css`
 
@@ -37,3 +37,12 @@ An example:  `easybake/adddb.sh "myDB" "myUser" "myPass" "localhost" "1234"`
 `easybake/addlib.sh <absolute path to library file>`
 
 An example: `easybake/addlib.sh /home/usr/libraries/thisone.lib`
+
+
+To Do:
+------
+* database.php -  model/lib - both an object and the procedural way to make a database
+* every public/src (source file) that connects to a database or does anything backend and needs to display it out to a user needs to have a corresponding controller/ file
+* remove .sh extensions and see if things still work (they should)
+* add changing permissions to setup(.sh)
+
