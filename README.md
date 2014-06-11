@@ -1,4 +1,4 @@
-phphwithme
+phpwithme
 ==========
 
 Developer(s)
@@ -29,9 +29,9 @@ An example: `easybake/makefile.sh stylesheet newcssfile.css`
 Or: `easybake/makefile.sh script me/like/folders/flashything.js`
 
 ###To add a database: 
-`easybake/adddb.sh <database_name> <username> <password> <link to the database> <port>`
+`easybake/adddb.sh <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>`
 
-An example:  `easybake/adddb.sh "myDB" "myUser" "myPass" "localhost" "1234"`
+An example:  `easybake/adddb.sh "MySQL" "myDB" "myUser" "myPass" "localhost" "1234"`
 
 ###To add a library: 
 `easybake/addlib.sh <absolute path to library file>`
@@ -42,7 +42,9 @@ An example: `easybake/addlib.sh /home/usr/libraries/thisone.lib`
 To Do:
 ------
 * database.php -  model/lib - both an object and the procedural way to make a database
+  -> user should only have to provide the name of the database they want to connect to (must have added it using easybake/adddb(.sh)) 
 * every public/src (source file) that connects to a database or does anything backend and needs to display it out to a user needs to have a corresponding controller/ file
 * remove .sh extensions and see if things still work (they should)
 * add changing permissions to setup(.sh)
+* add <type of database> as an argument for easybake/adddb(.sh)
 
