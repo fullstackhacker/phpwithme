@@ -7,7 +7,7 @@ if [ $1 == '-h' ]
 then
 	echo ''
 	echo 'For use: '
-	echo ' ./easy_site/makefile <model|stylesheet|script|src> <path-to-file-from-that-folder>'
+	echo ' ./easy_site/makefile <model|controller|stylesheet|script|src> <path-to-file-from-that-folder>'
 	echo ''
 	echo 'Example: '
 	echo ' new stylesheet: ./makefile stylesheet new.css'
@@ -23,6 +23,13 @@ if [ $1 == "model" ]
 then 
 	#if the user is creating model, change it to the model directory
 	public="php_framework/models"
+fi
+
+#check if user is creating controller script
+if [ $1 == "controleler" ] 
+then 
+	#if user is creating a controller, set the path to the controller directory
+	public="php_framework/controllers"
 fi
 
 #check if the file already exists
@@ -72,6 +79,7 @@ touch $public/$2
 if [ $1 == "src" ]
 then 
 	echo "<?php" >> $public/$2
+	echo "/* php goes here */" >> $public/$2
 	echo "" >> $public/$2
 	echo "" >> $public/$2
 	echo "?>" >> $public/$2
@@ -84,16 +92,31 @@ then
 	echo "</html>" >> $public/$2
 fi
 
+#set up the initial model file for the user
 if [ $1 == "model" ]
 then 
 	echo "<?php" >> $public/$2
+	echo "  /**" >> $public/$2
+	echo "   * $classname" >> $public/$2
+	echo "   * Created by: " >> $public/$2
+	echo "   */" >> $public/$2
 	echo "  class $classname {" >> $public/$2
 	echo "" >> $public/$2
-	echo "//mark" >> $public/$2
+	echo "		//mark" >> $public/$2
+	echo "" >> $public/$2
 	echo "    function __construct(){" >> $public/$2
 	echo "" >> $public/$2
 	echo "    }" >> $public/$2
 	echo "  }" >> $public/$2
+	echo "?>" >> $public/$2
+fi
+
+#set up the intial controller file for the user
+if [ $1 == "controller" ] 
+then 
+	echo "<?php" >> $public/$2
+	echo "" >> $public/$2
+	echo "" >> $public/$2
 	echo "?>" >> $public/$2
 fi
 
