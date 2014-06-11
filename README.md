@@ -51,6 +51,3 @@ To Do:
 * database.php -  model/lib - both an object and the procedural way to make a database
   -> user should only have to provide the name of the database they want to connect to (must have added it using easybake/adddb(.sh)) 
 * every public/src (source file) that connects to a database or does anything backend and needs to display it out to a user needs to have a corresponding controller/ file
-* remove .sh extensions and see if things still work (they should)
-* add <type of database> as an argument for easybake/adddb(.sh)
-
