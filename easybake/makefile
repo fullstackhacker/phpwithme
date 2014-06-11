@@ -102,7 +102,7 @@ then
 	echo "   */" >> $public/$2
 	echo "  class $classname {" >> $public/$2
 	echo "" >> $public/$2
-	echo "		//mark" >> $public/$2
+	echo "    //mark" >> $public/$2
 	echo "" >> $public/$2
 	echo "    function __construct(){" >> $public/$2
 	echo "" >> $public/$2
