@@ -9,22 +9,23 @@ if [ $1 == '-h' ]
 then 
 	echo ""
 	echo "Usage:"
-	echo "easyfiles/addDb.sh <database_name> <username> <password> <link to the database> <port>"
+	echo "easyfiles/addDb.sh <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>"
 	echo ""
 	exit
 fi
 
-#get info 
-database="'$1'"
-username="'$2'"
-password="'$3'"
-link="'$4'"
-port="'$5'"
+#get info
+dbtype="'$1'"
+database="'$2'"
+username="'$3'"
+password="'$4'"
+link="'$5'"
+port="'$6'"
 
 #config file
 config="php_framework/config/config.php"
 
 #add the  database info into the file
-sed -i 's/<?php/<?php\n\n$_CONFIG["'$database'_HOST"]='$link';\n$_CONFIG["'$database'_PORT"]='$port';\n$_CONFIG["'$database'_DATABASE"]='$database';\n$_CONFIG["'$database'_USER"]='$username';\n$_CONFIG["'$database'_PASSWORD"]='$password';\n/' $config
+sed -i 's/<?php/<?php\n\n$_CONFIG["'$database'_TYPE"]='$dbtype';\n$_CONFIG["'$database'_HOST"]='$link';\n$_CONFIG["'$database'_PORT"]='$port';\n$_CONFIG["'$database'_DATABASE"]='$database';\n$_CONFIG["'$database'_USER"]='$username';\n$_CONFIG["'$database'_PASSWORD"]='$password';\n/' $config
 
 echo "Database Information added succesfully!"
