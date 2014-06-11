@@ -42,6 +42,7 @@ An example: `easybake/addlib /home/usr/libraries/thisone.lib`
 External Libraries
 ------------------
 jQuery 2.1.1 - 
+
 scrypt.php - 
 
 
