@@ -45,7 +45,11 @@ Simply download and run the setup.sh file. It'll get all the proper files and fo
 Usage
 -----
 ###To create a file: 
-`easybake/makefile <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
+`easybake/makefile [ -c ] <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
+	
+	Flag(s): 
+
+	 -c = create a counterpart controller/src file with your src/controller file 
 
 Example(s):
 
@@ -54,6 +58,8 @@ Example(s):
 `easybake/makefile script me/like/folders/flashything.js`
 
 `easybake/makefile controller login.php`
+
+`easybake/makefile -c controller login.php`	 = creates a src file in `php_framework/public/srcs`
 
 ###To add a database: 
 `easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>`
@@ -70,13 +76,30 @@ Example(s):
 `easybake/addlib /home/usr/libraries/thisone.php`
 
 
-###To connect to a database: 
-In you php script (should be in the controller)
+###To connect and query a database: 
+In you php script, which should be in the controller,
+
+    $dbobj = new database($dbname);
+
+		$dbobj->prepare($sqlstring);
+
+		$dbobj->execute();
+
+		while(($row = $dbobj->getNextRow()) !== false){
+			/* do stuff here	*/
+		}
+
+		$dbobj->close();
 
 
+Currently, only the following database types are supported (or rather tested): 
+
+*  
+* 
+* 
 
 Included External Libraries
-------------------
+---------------------------
 jQuery 2.1.1 - 
 
 scrypt.php - 
@@ -86,4 +109,3 @@ To Do
 ------
 * database.php -  model/lib - both an object and the procedural way to make a database
   -> user should only have to provide the name of the database they want to connect to (must have added it using easybake/adddb) 
-* every public/src (source file) that connects to a database or does anything backend and needs to display it out to a user needs to have a corresponding controller/ file
