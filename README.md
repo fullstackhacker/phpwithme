@@ -15,7 +15,7 @@ It also includes a couple of libaries (listed below with links to them) and coup
 Overview
 --------
 
-* easybake/ -  This folder contains a couple of scripts that will help you create and edit files without having to write a single line of php or html
+* `easybake/` -  This folder contains a couple of scripts that will help you create and edit files without having to write a single line of php or html
 
 * `php_framework/` -  This folder contains the entire website
 
