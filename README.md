@@ -79,7 +79,7 @@ Example(s):
 ###To connect and query a database: 
 In you php script, which should be in the controller,
 
-	$dbobj = new database($dbname);
+		$dbobj = new database($dbname);
 
 		$dbobj->prepare($sqlstring);
 
