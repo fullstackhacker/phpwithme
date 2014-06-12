@@ -75,8 +75,20 @@ Example(s):
 
 `easybake/addlib /home/usr/libraries/thisone.php`
 
+###To add fields to a model: 
+`Note:` These models must created using `easybake/makefile`
+
+`easybake/addfieldsto <relative path from models folder> <newfield1> [ <newfield2> ... <newfieldn> ]` 
+
+Example(s): 
+
+`easybake/addfieldsto user.php age height weight`
+
+`easybake/addfieldsto myobj.php shape`
 
 ###To connect and query a database: 
+`Note:` Make sure the database you are trying to connect to was added by using `easybake/adddb`
+
 In you php script, which should be in the controller,
 
 		$dbobj = new database($dbname);

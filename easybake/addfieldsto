@@ -9,28 +9,18 @@ then
 	echo ""
 	echo "Usage:"
 	echo ""
-	echo 'easybake/addfieldsto.sh "<type of file: model|controller>" "<name of file>" "<field_1>" "<field_2>" ... "<field_n>"'
+	echo 'easybake/addfieldsto.sh <name of file> <field_1> <field_2> ... <field_n>'
 	echo ""
 fi
 
-$path = ''
-
-if [ $1 == 'model' ] 
-then 
-	$path = 'public/model'
-fi
-
-if [ $1 == 'controller' ] 
-then 
-	$path = 'public/controller'
-fi 
+$path="php_framwork/model"
 
 #use sed to insert after the '//mark', but need to figure out how to loop this 
 for var in $@
 do
-	if [ $counter -gt 2 ]  #counter should be greater than two
+	if [ $counter -gt 1 ]  #counter should be greater than two
 	then
-		sed -i "s/\/\/mark/\t\$$var;\n\/\/mark\n/" $path/$2
+		sed -i "s/\/\/mark/\t\$$var;\n\/\/mark\n/" $path/$1
 	fi
 	$((counter++))
 done
