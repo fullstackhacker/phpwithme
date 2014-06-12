@@ -47,9 +47,9 @@ Usage
 ###To create a file: 
 `easybake/makefile [ -c ] <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
 	
-	Flag(s): 
+Flag(s): 
 
-	 -c = create a counterpart controller/src file with your src/controller file 
+ -c = create a counterpart controller/src file with your src/controller file 
 
 Example(s):
 
@@ -79,7 +79,7 @@ Example(s):
 ###To connect and query a database: 
 In you php script, which should be in the controller,
 
-    $dbobj = new database($dbname);
+	$dbobj = new database($dbname);
 
 		$dbobj->prepare($sqlstring);
 
