@@ -11,16 +11,20 @@ then
 	echo ""
 	echo 'easybake/addfieldsto.sh <name of file> <field_1> <field_2> ... <field_n>'
 	echo ""
+	exit
 fi
 
-$path="php_framwork/model"
+newpath="php_framework/models"
+counter=1
 
 #use sed to insert after the '//mark', but need to figure out how to loop this 
 for var in $@
 do
-	if [ $counter -gt 1 ]  #counter should be greater than two
+	if [ "$counter" -gt "1" ]  #counter should be greater than two
 	then
-		sed -i "s/\/\/mark/\t\$$var;\n\/\/mark\n/" $path/$1
+		sed -i "s/\/\/mark/\t\$$var;\n\t\t\/\/mark\n/" $newpath/$1
 	fi
-	$((counter++))
+	counter=$((counter+1))	
 done
+
+echo "Successfully added fields to $1"
