@@ -4,7 +4,7 @@ A PHP framework/toolkit for PHP newbies.
 
 Version History
 ---------------
-[Version: 1.0](http://github.com/kapadiamush/phpwithme/tree/master#version-1.0 "Version 1.0") - Intial Release 
+[Version: 1.0](http://github.com/kapadiamush/phpwithme/tree/master#version-10 "Version 1.0") - Intial Release 
 
 Developer(s)
 ------------
