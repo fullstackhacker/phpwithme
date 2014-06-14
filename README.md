@@ -113,7 +113,7 @@ Included External Libraries
 ---------------------------
 [jQuery-2.1.1.min.js](http://jquery.com "jQuery") - jQuery library for the those that love jQuery for their javascript needs. It's located in `php_framework/public/scrnipts/` directory
 
-[scrypt.php](http://github.com/domblack/php-scrypt "scrypt")scrypt.php - An encryption protocol for storing user passwords. You don't have to worry about using this if you use our `user.php` class.
+[scrypt.php](http://github.com/domblack/php-scrypt "scrypt") - An encryption protocol for storing user passwords. You don't have to worry about using this if you use our `user.php` class.
 
 Version History
 ---------------
