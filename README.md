@@ -2,6 +2,10 @@ phpwithme
 ==========
 A PHP framework/toolkit for PHP newbies. 
 
+Version History
+---------------
+[Version: 1.0](http://github.com/kapadiamush/phpwithme/tree/master#version-1.0 "Version 1.0") - Intial Release 
+
 Developer(s)
 ------------
 * Mushaheed Kapadia
@@ -106,18 +110,16 @@ In you php script, which should be in the controller,
 
 Currently, only the following database types are supported (or rather tested): 
 
-*  
-* 
-* 
+* MySQL 
+* PostgreSQL
 
 Included External Libraries
 ---------------------------
-jQuery 2.1.1 - 
+[jQuery-2.1.1.min.js](http://jquery.com "jQuery") - jQuery library for the those that love jQuery for their javascript needs. It's located in `php_framework/public/scrnipts/` directory
 
-scrypt.php - 
+[scrypt.php](http://github.com/domblack/php-scrypt "scrypt")scrypt.php - An encryption protocol for storing user passwords. You don't have to worry about using this if you use our `user.php` class.
 
+Version 1.0
+-----------
+Version 1.0 was the initial release of phpwithme. It contained the basic files to create a website, including a database and user object. It also had a toolkit containing shell scripts to create new files, add fields to classes, add a database to your site, and add an external library.
 
-To Do
-------
-* database.php -  model/lib - both an object and the procedural way to make a database
-  -> user should only have to provide the name of the database they want to connect to (must have added it using easybake/adddb) 
