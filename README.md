@@ -2,10 +2,6 @@ phpwithme
 ==========
 A PHP framework/toolkit for PHP newbies. 
 
-Version History
----------------
-[Version: 1.0](http://github.com/kapadiamush/phpwithme/tree/master#version-10 "Version 1.0") - Intial Release 
-
 Developer(s)
 ------------
 * Mushaheed Kapadia
@@ -118,6 +114,10 @@ Included External Libraries
 [jQuery-2.1.1.min.js](http://jquery.com "jQuery") - jQuery library for the those that love jQuery for their javascript needs. It's located in `php_framework/public/scrnipts/` directory
 
 [scrypt.php](http://github.com/domblack/php-scrypt "scrypt")scrypt.php - An encryption protocol for storing user passwords. You don't have to worry about using this if you use our `user.php` class.
+
+Version History
+---------------
+[Version: 1.0](http://github.com/kapadiamush/phpwithme/tree/master#version-10 "Version 1.0") - Intial Release 
 
 Version 1.0
 -----------
