@@ -74,13 +74,14 @@ echo "got the script files"
 
 #get all the easybake files
 cd $eb
-wget $host/$eb/adddb.sh
-wget $host/$eb/makefile.sh
-wget $host/$eb/addfieldsto.sh
-wget $host/$eb/addlib.sh
+wget $host/$eb/adddb
+wget $host/$eb/makefile
+wget $host/$eb/addfieldsto
+wget $host/$eb/addlib
 cd ..
 echo "got the easybake files"
 
+chmod -R 0755 $eb 
 
 echo ""
 echo "Setup Complete!"
