@@ -1,5 +1,18 @@
 #/bin/bash
 
+#######################################################################
+# phpwithme setup file
+# 
+# simply run './setup' in the folder that you want to use as the base 
+# of your php webapp
+#
+# enjoy
+#
+# AUTHOR: Mushaheed Kapadia
+#
+#######################################################################
+
+
 host="eden.rutgers.edu/~msk154/phpwithme"
 dbw="php_framework"
 eb="easybake"
