@@ -7,8 +7,8 @@ if [ $1 == '-h' ]
 then
 	echo ''
 	echo 'For use: '
-	echo ' ./easy_site/makefile [ -c ] <model|controller|stylesheet|script|src> <path-to-file-from-that-folder>'
-	echo ' -c flag only to be used for creating a controller script along with a src script'
+	echo ' ./easy_site/makefile [ -c ] <model|controller|stylesheet|script|view> <path-to-file-from-that-folder>'
+	echo ' -c flag only to be used for creating a controller script along with a view script'
 	echo 'Example: '
 	echo ' new stylesheet: ./makefile stylesheet new.css'
 	echo ''
@@ -27,14 +27,14 @@ then
 	filepath=$3
 	public="php_framework/public/$2s"
 
-	if [ $filetype == 'src' ] 
+	if [ $filetype == 'view' ] 
 	then 
 		public2="php_framework/controllers"
 	fi
 	
 	if [ $filetype == 'controller' ] 
 	then 	
-		public2="php_framework/public/srcs"
+		public2="php_framework/public/views"
 	fi
 fi
 
@@ -147,7 +147,7 @@ then
 fi 
 
 #set up the initial source file for the user
-if [ $filetype == "src" ]
+if [ $filetype == "view" ]
 then 
 	echo "<?php" >> $public/$filepath
 	echo "/* php goes here */" >> $public/$filepath
@@ -212,7 +212,7 @@ fi
 
 if [ $1 == '-c' ]
 then 
-	if [ $filetype == 'src' ] 
+	if [ $filetype == 'view' ] 
 	then
 		echo "<?php" >> $public2/$filepath
 		echo "" >> $public2/$filepath
