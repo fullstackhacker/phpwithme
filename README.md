@@ -33,7 +33,7 @@ Overview
 
 * `php_framework/public/stylesheets` - This folder contains all you stylesheets
 
-* `php_framework/public/srcs` - This folder contains all php files beside the index.php file that is located in the public directory - Every file in here that is rendered by some sort of backend work (i.e. using a database) should have a counter-part in the controllers folder that does the actual work
+* `php_framework/public/views` - This folder contains the frontend files beside the index.php file that is located in the public directory - Every file in here that is rendered by some sort of backend work (i.e. using a database) should have a counter-part in the controllers folder that does the actual work
 
 Set up/Installation
 -------------------
@@ -59,7 +59,7 @@ Example(s):
 
 `easybake/makefile controller login.php`
 
-`easybake/makefile -c controller login.php`	 = creates a src file in `php_framework/public/srcs`
+`easybake/makefile -c controller login.php`	 = creates a view file in `php_framework/public/views`
 
 ###To add a database: 
 `easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <host> <port>`
@@ -125,4 +125,4 @@ Version 1.0 was the initial release of phpwithme. It contained the basic files t
 
 To Do
 -----
-* change name of the `php_framework/public/srcs` directory to `php_framework/public/views`
+
