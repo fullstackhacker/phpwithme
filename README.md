@@ -62,7 +62,7 @@ Example(s):
 `easybake/makefile -c controller login.php`	 = creates a src file in `php_framework/public/srcs`
 
 ###To add a database: 
-`easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>`
+`easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <host> <port>`
 
 Example(s):  
 
@@ -123,3 +123,6 @@ Version 1.0
 -----------
 Version 1.0 was the initial release of phpwithme. It contained the basic files to create a website, including a database and user object. It also had a toolkit containing shell scripts to create new files, add fields to classes, add a database to your site, and add an external library.
 
+To Do
+-----
+* change name of the `php_framework/public/srcs` directory to `php_framework/public/views`
