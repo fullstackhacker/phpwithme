@@ -1,4 +1,8 @@
 #!/bin/bash
+#############################################################################
+#
+# Author: Mushaheed Kapadia 
+#
 # $1 = type of file (controller/model/stylesheets/scripts/src/model) 
 # $2 = path to the file from there || 
 # 
