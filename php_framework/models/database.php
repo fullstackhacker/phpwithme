@@ -5,9 +5,6 @@
    * Created by: Mushaheed Kapadia
    */
 class database {
-	/* database types */
-	public static final $mysql = 'MySQL';  
-	public static final $postgresql = 'PostgreSQL';
 	
 	/* private fields for databases */
 	private $conn=null;

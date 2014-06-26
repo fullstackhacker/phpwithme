@@ -45,7 +45,7 @@ Simply download and run the setup.sh file. It'll get all the proper files and fo
 Usage
 -----
 ###To create a file: 
-`easybake/makefile [ -c ] <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
+`easybake/createfile [ -c ] <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
 	
 Flag(s): 
 
@@ -53,13 +53,13 @@ Flag(s):
 
 Example(s):
 
-`easybake/makefile stylesheet newcssfile.css`
+`easybake/createfile stylesheet newcssfile.css`
 
-`easybake/makefile script me/like/folders/flashything.js`
+`easybake/createfile script me/like/folders/flashything.js`
 
-`easybake/makefile controller login.php`
+`easybake/createfile controller login.php`
 
-`easybake/makefile -c controller login.php`	 = creates a src file in `php_framework/public/srcs`
+`easybake/createfile -c controller login.php`	 = creates a src file in `php_framework/public/srcs`
 
 ###To add a database: 
 `easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>`
@@ -76,7 +76,7 @@ Example(s):
 `easybake/addlib /home/usr/libraries/thisone.php`
 
 ###To add fields to a model: 
-`Note:` These models must created using `easybake/makefile`
+`Note:` These models must created using `easybake/createfile`
 
 `easybake/addfieldsto <relative path from models folder> <newfield1> [ <newfield2> ... <newfieldn> ]` 
 

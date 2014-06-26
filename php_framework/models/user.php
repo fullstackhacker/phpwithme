@@ -105,6 +105,10 @@ class User {
 	public function setLastname($lastname){
 		$this->lastname = $lastname;
 	}
+
+	public function writeUser(){ 
+		
+	}
 	
 	/**
 	 * Saves the user to the table 
