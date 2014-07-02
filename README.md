@@ -62,7 +62,7 @@ Example(s):
 `easybake/createfile -c controller login.php`	 = creates a view file in `php_framework/public/views`
 
 ###To add a database: 
-`easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <host> <port>`
+`easybake/adddb <type of database: MySQL|PostgreSQL> <database_name> <username> <password> <host> <port>`
 
 Example(s):  
 
@@ -111,7 +111,7 @@ Currently, only the following database types are supported (or rather tested):
 
 Included External Libraries
 ---------------------------
-[jQuery-2.1.1.min.js](http://jquery.com "jQuery") - jQuery library for the those that love jQuery for their javascript needs. It's located in `php_framework/public/scrnipts/` directory
+[jQuery-2.1.1.min.js](http://jquery.com "jQuery") - jQuery library for the those that love jQuery for their javascript needs. It's located in `php_framework/public/scripts/` directory
 
 [scrypt.php](http://github.com/domblack/php-scrypt "scrypt") - An encryption protocol for storing user passwords. You don't have to worry about using this if you use our `user.php` class.
 

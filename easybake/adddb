@@ -9,7 +9,7 @@ if [ $1 == '-h' ]
 then 
 	echo ""
 	echo "Usage:"
-	echo "easyfiles/addDb.sh <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>"
+	echo "easyfiles/addDb.sh <type of database: MySQL|PostgreSQL> <database_name> <username> <password> <link to the database> <port>"
 	echo ""
 	exit
 fi
