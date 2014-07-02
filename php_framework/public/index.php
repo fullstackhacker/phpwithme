@@ -6,7 +6,7 @@
 <!DOCTYPE html> 
 <html>
 	<head>
-		<?php require 'src/head.html'; ?>
+		<?php require 'views/head.html'; ?>
 	</head>
 	<body>
 	</body>

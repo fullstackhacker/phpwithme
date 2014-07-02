@@ -67,7 +67,7 @@ cd ../..
 echo "got the public files" 
 
 #get public source files
-cd $dbw/public/srcs
+cd $dbw/public/views
 wget $host/$dbw/public/views/head.html
 cd ../../..
 echo "got the public source files"
