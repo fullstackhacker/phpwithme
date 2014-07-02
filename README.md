@@ -122,7 +122,3 @@ Version History
 Version 1.0
 -----------
 Version 1.0 was the initial release of phpwithme. It contained the basic files to create a website, including a database and user object. It also had a toolkit containing shell scripts to create new files, add fields to classes, add a database to your site, and add an external library.
-
-To Do
------
-
