@@ -45,11 +45,11 @@ Simply download and run the setup.sh file. It'll get all the proper files and fo
 Usage
 -----
 ###To create a file: 
-`easybake/createfile [ -c ] <type of file: controller|model|stylesheet|script|src> <path to the file from there>`
+`easybake/createfile [ -c ] <type of file: controller|model|stylesheet|script|view> <path to the file from there>`
 	
 Flag(s): 
 
- -c = create a counterpart controller/src file with your src/controller file 
+ -c = create a counterpart controller/view file with your view/controller file 
 
 Example(s):
 
@@ -59,7 +59,7 @@ Example(s):
 
 `easybake/createfile controller login.php`
 
-`easybake/createfile -c controller login.php`	 = creates a view file in `php_framework/public/srcs`
+`easybake/createfile -c controller login.php`	 = creates a view file in `php_framework/public/views`
 
 ###To add a database: 
 `easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <host> <port>`
