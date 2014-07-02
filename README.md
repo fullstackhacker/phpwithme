@@ -33,7 +33,7 @@ Overview
 
 * `php_framework/public/stylesheets` - This folder contains all you stylesheets
 
-* `php_framework/public/srcs` - This folder contains all php files beside the index.php file that is located in the public directory - Every file in here that is rendered by some sort of backend work (i.e. using a database) should have a counter-part in the controllers folder that does the actual work
+* `php_framework/public/views` - This folder contains the frontend files beside the index.php file that is located in the public directory - Every file in here that is rendered by some sort of backend work (i.e. using a database) should have a counter-part in the controllers folder that does the actual work
 
 Set up/Installation
 -------------------
@@ -59,10 +59,10 @@ Example(s):
 
 `easybake/createfile controller login.php`
 
-`easybake/createfile -c controller login.php`	 = creates a src file in `php_framework/public/srcs`
+`easybake/createfile -c controller login.php`	 = creates a view file in `php_framework/public/srcs`
 
 ###To add a database: 
-`easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <link to the database> <port>`
+`easybake/adddb <type of database: MySQL|PostgreSQL|Oracle|DB2|Informix> <database_name> <username> <password> <host> <port>`
 
 Example(s):  
 
@@ -122,4 +122,7 @@ Version History
 Version 1.0
 -----------
 Version 1.0 was the initial release of phpwithme. It contained the basic files to create a website, including a database and user object. It also had a toolkit containing shell scripts to create new files, add fields to classes, add a database to your site, and add an external library.
+
+To Do
+-----
 
