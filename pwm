@@ -1,0 +1,86 @@
+#!/bin/bash
+#################################################################################
+#   
+#     Author: Mushaheed Kapadia
+#
+#
+#
+#
+#
+#
+################################################################################
+
+# where the files are hosted
+host="phpwithme.mushaheedkapadia.com"
+
+# user wants to create a new application
+if [ $1 == 'new' ]
+then
+	# make the app folder
+	mkdir $2
+	
+	# make the directories
+	mkdir $2/config
+	mkdir $2/controllers
+	mkdir $2/libs
+	mkdir $2/models
+	mkdir $2/public
+	mkdir $2/public/views
+	mkdir $2/public/stylesheets
+	mkdir $2/public/scripts
+	echo "created the directories"
+
+	# get the configuration file
+	cd $2/config
+	wget $host/config/config.php
+	cd ../..
+	
+	# get the controller files
+	cd $2/controllers
+	cd ../..
+
+	# get the libs files 
+	cd $2/libs
+	wget $host/libs/scrypt.php
+	wget $host/libs/jquery-2.1.1.min.js
+	cd ../..
+
+	# get models files
+	cd $2/models 
+	cd ../..
+
+	# get public files
+	cd $2/public
+	wget $host/public/index.php
+	cd ../..
+	
+	# get views 
+	cd $2/public/views
+	wget $host/public/views/head.html
+	cd ../../..
+	
+	# get stylesheets
+	cd $2/public/stylesheets
+	wget $host/public/stylesheets/reset.css
+	wget $host/public/stylesheets/global.css
+	cd ../../..
+
+	# get scripts
+	cd $2/public/scripts
+	wget $host/public/scripts/global.js
+	cd ../../..
+	
+	echo ""
+	echo "Project Created Successfully!"
+	echo "cd $2"
+	echo "Thank you!"
+	echo "" 
+
+	exit
+fi
+
+if [ $1 == 'add' ] 
+then 
+	
+fi
+
