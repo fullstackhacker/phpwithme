@@ -1,14 +1,12 @@
 #!/bin/bash
 #################################################################################
-#   
-#     Author: Mushaheed Kapadia
-#
-#
-#
-#
-#
-#
-################################################################################
+#                                                                               # 
+#  Pwm is the core to php with me. It contains all the necessary functions to   #
+#  create you php web application.                                              #
+#                                                                               # 
+#  Author: Mushaheed Kapadia                                                    #
+#                                                                               #
+#################################################################################
 
 # where the files are hosted
 host="phpwithme.mushaheedkapadia.com"
@@ -79,8 +77,51 @@ then
 	exit
 fi
 
+# user wants to add something
 if [ $1 == 'add' ] 
 then 
+	# add a database
+	if [ $2 == 'db' ] 
+	then
+		# get the database information
+		dbtype=$3
+		name=$4
+		host=$5
+		port=$6
+		user=$7
+		pass=$8
 	
+		# configuration file 
+		config="config/config.php" 
+		
+		# add the database information to the configuration file
+		sed -i "s/\/\/mark/\$_CONFIG['type_$name']='$dbtype';\n\$_CONFIG['host_$name']='$name';\n\$_CONFIG['port_$name']='$port';\n\$_CONFIG['user_$name']='$user';\n\$_CONFIG['pass_$name']='$pass';\n\/\/mark\n/" $config
+	
+		# echo out success
+		echo "database added successfully"
+	
+		# exit on completion
+		exit
+	fi
+	
+	# add a library
+	if [ $2 == 'lib' ]
+	then 
+		# get the path to the library
+		libpath=$3
+	
+		# get the path to our libraries 
+		pathlib="libs/"
+
+		# copy it into ours
+		cp $libpath $pathlib
+
+		# echo out sucess
+		echo "library added successfully"
+
+		# exit on completion
+		exit 
+	fi
+
 fi
 

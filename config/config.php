@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 /* Can use the simple inserter given in the easyfiles folder */
 
 /* 
@@ -16,4 +12,7 @@ $_CONFIG['mysql_db'] = "database1";
 $_CONFIG['mysql_password'] = "password";
 */
 
+//mark
+
+'
 ?>
