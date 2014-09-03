@@ -234,7 +234,39 @@ then
 	# controller -> creates a view || -h only a controller
 	if [ $2 == 'feature' ]
 	then 
-		echo "feature"		
-	fi
+		controllername=$3 
+		if [ $3 == '-v' ] 
+		then
+			controllername=$4
+		fi
+		
+		filename="$controllername.php"	
 
+		# create the controller file
+		echo "<?php" >> "controllers/$filename"
+		echo "" >> "controllers/$filename"
+		echo "/**" >> "controllers/$filename"
+		echo " * " >> "controllers/$filename"
+		echo " * $3" >> "controllers/$filename"
+		echo " */" >> "controllers/$filename"		
+		echo "?>" >> "controllers/$filename"
+			
+		# check if the user wants a view file
+		if [ $3 == '-v' ] 
+		then 
+			# create the view file
+			echo "<!DOCTYPE>" >> "views/$filename"
+			echo "<html>" >> "viewss/$filename"
+			echo "  <head>" >> "views/$filename"
+			echo "    <!--title-->" >> "views/$filename" 
+			echo "    <title></title>" >> "views/$filename" 
+			echo "    <!--scripts-->" >> "views/$filename"
+			echo "    <!--stylesheets-->" >> "views/$filename"
+			echo "    <link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/reset.css\"" >> "views/$filename"
+			echo "  </head>" >> "controllers/$filename"
+			echo "  <body>" >> "controllers/$filename"
+			echo "  </body>" >> "controllers/$filename" 
+			echo "</html>" >> "controllers/$filename"
+		fi 
+	fi
 fi
