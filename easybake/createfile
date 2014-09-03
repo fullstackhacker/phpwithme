@@ -20,27 +20,10 @@ then
 fi
 
 #set it to the public directory
-filetype=$1
-filepath=$2
-public="php_framework/public/$1s"
+filetype=$2
+filepath=$3
+public="php_framework/public/$2s"
 public2=""
-
-if [ $1 == '-c' ]
-then 
-	filetype=$2
-	filepath=$3
-	public="php_framework/public/$2s"
-
-	if [ $filetype == 'view' ] 
-	then 
-		public2="php_framework/controllers"
-	fi
-	
-	if [ $filetype == 'controller' ] 
-	then 	
-		public2="php_framework/public/views"
-	fi
-fi
 
 #check if user is creating model object
 if [ $filetype == "model" ] 

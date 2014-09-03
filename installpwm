@@ -1,4 +1,4 @@
 #!/bin/bash
 
 wget phpwithme.mushaheedkapadia.com/pwm
-mv pwm /usr/bin
+sudo mv pwm /usr/bin
