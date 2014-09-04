@@ -1,0 +1,359 @@
+#!/bin/bash
+################################################################################# #                                                                               # 
+#  Pwm is the core to php with me. It contains all the necessary functions to   #
+#  create you php web application.                                              #
+#                                                                               # 
+#  Author: Mushaheed Kapadia                                                    # 
+#                                                                               # 
+################################################################################# 
+host="phpwithme.mushaheedkapadia.com"
+
+if [ $1 == '-h' ] 
+then 
+	echo "" 
+	echo "pwm [flags] [args]" 
+	echo "" 
+	echo "FLAGS:"
+	echo "-h - displays this dialogue" 
+	echo "new - create a new php applicaiton" 
+	echo "add - add a database, library to the application" 
+	echo "create - allows you to create different features of the application" 
+	echo "delete - allows you to delete different features of the application" 
+fi
+
+# user wants to create a new application
+if [ $1 == 'new' ]
+then
+	# make the app folder
+	mkdir $2
+	
+	# make the directories
+	mkdir $2/config
+	mkdir $2/controllers
+	mkdir $2/libs
+	mkdir $2/models
+	mkdir $2/public
+	mkdir $2/public/views
+	mkdir $2/public/stylesheets
+	mkdir $2/public/scripts
+	echo "created the directories"
+
+	# get the configuration file
+	cd $2/config
+	wget $host/config/config.php
+	cd ../..
+	
+	# get the controller files
+	cd $2/controllers
+	cd ../..
+
+	# get the libs files 
+	cd $2/libs
+	wget $host/libs/scrypt.php
+	wget $host/libs/jquery-2.1.1.min.js
+	cd ../..
+
+	# get models files
+	cd $2/models 
+	cd ../..
+
+	# get public files
+	cd $2/public
+	wget $host/public/index.php
+	cd ../..
+	
+	# get views 
+	cd $2/public/views
+	wget $host/public/views/head.html
+	cd ../../..
+	
+	# get stylesheets
+	cd $2/public/stylesheets
+	wget $host/public/stylesheets/reset.css
+	wget $host/public/stylesheets/global.css
+	cd ../../..
+
+	# get scripts
+	cd $2/public/scripts
+	wget $host/public/scripts/global.js
+	cd ../../..
+	
+	echo ""
+	echo "Project Created Successfully!"
+	echo "cd $2"
+	echo "Thank you!"
+	echo "" 
+
+	exit
+fi
+
+# user wants to add something
+if [ $1 == 'add' ] 
+then 
+	# add a database
+	if [ $2 == 'db' ] 
+	then
+		# get the database information
+		dbtype=$3
+		name=$4
+		host=$5
+		port=$6
+		user=$7
+		pass=$8
+	
+		# configuration file 
+		config="config/config.php" 
+		
+		# add the database information to the configuration file
+		sed -i "s/\/\/mark/\$_CONFIG['type_$name']='$dbtype';\n\$_CONFIG['host_$name']='$name';\n\$_CONFIG['port_$name']='$port';\n\$_CONFIG['user_$name']='$user';\n\$_CONFIG['pass_$name']='$pass';\n\/\/mark\n/" $config
+	
+		# echo out success
+		echo "database added successfully"
+	
+		# exit on completion
+		exit
+	fi
+	
+	# add a library
+	if [ $2 == 'lib' ]
+	then 
+		# get the path to the library
+		libpath=$3
+	
+		# get the path to our libraries 
+		pathlib="libs/"
+
+		# copy it into ours
+		cp $libpath $pathlib
+
+		# echo out sucess
+		echo "library added successfully"
+
+		# exit on completion
+		exit 
+	fi
+fi
+
+# user wants to create a feature
+if [ $1 == 'create' ] 
+then
+	# the user wants to create a model -> also create a controller and view 
+	if [ $2 == '-h' ]	
+	then
+		echo ""
+		echo "There are two things you can create:"
+		echo " * Models - which are things like users, products, etc"
+		echo " * Features  - which are things like logging in, logging out, purchasing a product" 
+		echo ""
+		echo "Each model you create will have a table in your database" 
+		echo "A feature can represent a link between your models, or can be simple helper scripts that get things done" 
+		echo "To create a model:"
+		echo "bash-\$pwm create model <name>"
+		echo "This will take care of creating the files in models, controllers, and views, and creating the table inside the database for you" 
+		echo "" 
+		echo "To create a feature: " 
+		echo "bash-\$pwm create feature [-h] <name>"
+		echo "This will create a file in controllers and views; if you are writing a script that is doing behind the scenes work (ie logging in, logging out, filling a purchase), you can specify the '-h' flag after feature, and the view fill will NOT get created."
+	fi
+	
+	# model -> creates a controller and a view 
+	if [ $2 == 'model' ] 
+	then 
+
+		# get the filename	
+		filename="$3.php"
+		
+		echo ">>models/$filename"
+	
+		# check if the file exists
+		if [ -a "models/$filename" ]
+		then 
+			echo "a model by that name already exists"
+			exit	
+		fi 
+
+		if [ -a "controllers/$filename" ] 
+		then
+			echo "a controller by that name already exists"
+			exit	
+		fi
+
+		if [ -a "views/$filename" ]
+		then
+			echo " a view by that name already exists"
+			exit	
+		fi 
+		
+		# create the model file
+		echo "<?php" >> "models/$filename"
+		echo "" >> "models/$filename"
+		echo "/**" >> "models/$filename"
+		echo " *" >> "models/$filename"
+		echo " * $filename" >> "models/$filename"
+		echo " */" >> "models/$filename" 
+		echo "" >> "models/$filename"
+		echo "class $3 extends ModelRecord{" >> "models/$filename"
+		echo "" >> "models/$filename"
+		echo "  //mark" >> "models/$filename"
+		echo "}" >> "models/$filename"
+		echo "?>" >> "models/$filename"
+
+		# create the controller file
+		echo "<?php" >> "controllers/$filename"
+		echo "" >> "controllers/$filename"
+		echo "/**" >> "controllers/$filename"
+		echo " * " >> "controllers/$filename"
+		echo " * $3" >> "controllers/$filename"
+		echo " */" >> "controllers/$filename"		
+		echo "?>" >> "controllers/$filename"
+
+		# create the view file
+		echo "<!DOCTYPE>" >> "views/$filename"
+		echo "<html>" >> "viewss/$filename"
+		echo "  <head>" >> "views/$filename"
+		echo "    <!--title-->" >> "views/$filename" 
+		echo "    <title></title>" >> "views/$filename" 
+		echo "    <!--scripts-->" >> "views/$filename"
+		echo "    <!--stylesheets-->" >> "views/$filename"
+		echo "    <link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/reset.css\"" >> "views/$filename"
+		echo "  </head>" >> "controllers/$filename"
+		echo "  <body>" >> "controllers/$filename"
+		echo "  </body>" >> "controllers/$filename" 
+		echo "</html>" >> "controllers/$filename"
+
+		echo "The files have been created in: " 
+		echo "  controllers/$filename" 
+		echo "  models/$filename"
+		echo "  views/$filename" 
+	fi
+
+
+
+	# the user wants to create a controller
+	# controller -> creates a view || -h only a controller
+	if [ $2 == 'feature' ]
+	then 
+		controllername=$3 
+		if [ $3 == '-v' ] 
+		then
+			controllername=$4
+		fi
+		
+		filename="$controllername.php"	
+
+		# create the controller file
+		echo "<?php" >> "controllers/$filename"
+		echo "" >> "controllers/$filename"
+		echo "/**" >> "controllers/$filename"
+		echo " * " >> "controllers/$filename"
+		echo " * $3" >> "controllers/$filename"
+		echo " */" >> "controllers/$filename"		
+		echo "?>" >> "controllers/$filename"
+			
+		# check if the user wants a view file
+		if [ $3 == '-v' ] 
+		then 
+			# create the view file
+			echo "<!DOCTYPE>" >> "views/$filename"
+			echo "<html>" >> "viewss/$filename"
+			echo "  <head>" >> "views/$filename"
+			echo "    <!--title-->" >> "views/$filename" 
+			echo "    <title></title>" >> "views/$filename" 
+			echo "    <!--scripts-->" >> "views/$filename"
+			echo "    <!--stylesheets-->" >> "views/$filename"
+			echo "    <link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/reset.css\"" >> "views/$filename"
+			echo "  </head>" >> "controllers/$filename"
+			echo "  <body>" >> "controllers/$filename"
+			echo "  </body>" >> "controllers/$filename" 
+			echo "</html>" >> "controllers/$filename"
+		fi 
+	fi
+fi
+
+if [ $2 == "remove" ]
+then 
+	if [ $3 == '-h' ] 
+	then 
+		echo "pwm remove <model | feature> [ -v ] <filename>"
+	fi
+	
+	# file only exists with a view
+	if [ $3 == "feature" && $4 == "-v" ] 
+	then
+
+		# check if the files exist or not
+		if [ ! -a "controllers/$5.php" ]  # controller file does not exit
+		then 
+			echo " Controller File does not exit!"
+			exit
+		fi
+
+		if [ ! -a "views/$5.php" ]  #view file does not exit
+		then 
+			echo "View file does not exist"
+			exit
+		fi
+	
+		#remove the file
+		rm "controllers/$5.php"	
+		rm "views/$5.php"
+		echo "controllers/$5.php removed"
+		echo "views/$5.php removed"	
+		exit
+	fi
+	
+	filename="$4.php"
+	
+	# user wants to remove a model
+	if [ $3 == "model" ] 
+	then 
+
+		#check if the model/controller/view file exists
+		if [ ! -a "models/$filename" ]  # model file doesn't exist
+		then 
+			echo "The model file does not exist" 
+			exit
+		fi 
+	
+		if [ ! -a "controllers/$filename" ] # controller file doesn't exist
+		then 
+			echo "The controller file doesn't exist"
+			exit
+		fi
+
+
+		if [ ! -a "views/$filename" ] # view file doesn't exit
+		then 
+			echo " the view file doesn't exist"
+			exit
+		fi
+	
+		# remove the files
+		rm "models/$filename"
+		rm "controllers/$filename"
+		rm "views/$filename"
+
+		# boop print that shit
+		echo "models/$filename removed"
+		echo "controllers/$filename removed"
+		echo "views/$filename removed"
+	fi
+	
+	# user just wants to remove the controller file
+	if [ $3 == "feature" ] 
+	then 
+
+		#check if the file exist
+		if [ ! -a "controllers/$filename" ] # the controller file doesn't exist
+	 	then 
+			echo "The controller file does not exist"
+			exit
+		fi
+		
+		#remove the files
+		rm "controllers/$filename"
+
+		#tell the user its gone
+		echo "controllers/$filename removed"
+	fi
+fi

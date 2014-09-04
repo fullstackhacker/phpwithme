@@ -15,99 +15,62 @@ It also includes a couple of libaries (listed below with links to them) and coup
 Overview
 --------
 
-* `easybake/` -  This folder contains a couple of scripts that will help you create and edit files without having to write a single line of php or html
+* `config/` - This folder contains the configuration files
 
-* `php_framework/` -  This folder contains the entire website
+* `controllers/` - This folder contains the controller files. Controller files get all the data for the 'View' to display. In this framework, the 'view' folder is known as the 'public' folder
 
-* `php_framework/config` - This folder contains the configuration files
+* `libs/` -  This folder contains all the php libraries that you want to include
 
-* `php_framework/controller` - This folder contains the controller files. Controller files get all the data for the 'View' to display. In this framework, the 'view' folder is known as the 'public' folder
+* `models/` - This folder contains all the objects 
 
-* `php_framework/libs` -  This folder contains all the php libraries that you want to include
+* `public/` - This folder is the publically exposed part of the site - you want to set your DIRECTORYROOT to point at this folder 
 
-* `php_framework/models` - This folder contains all the objects 
+* `public/scripts/` - This folder contains all your javascript files
 
-* `php_framework/public` - This folder is the publically exposed part of the site - you want to set your DIRECTORYROOT to point at this folder 
+* `public/stylesheets/` - This folder contains all you stylesheets
 
-* `php_frameowrk/public/scripts` - This folder contains all your javascript files
+* `public/views/` - This folder contains the frontend files beside the index.php file that is located in the public directory - Every file in here that is rendered by some sort of backend work (i.e. using a database) should have a counter-part in the controllers folder that does the actual work
 
-* `php_framework/public/stylesheets` - This folder contains all you stylesheets
+Set up/Installation - Linux/Unix
+---------------------------
+To start using phpwithme, first you'll need to download the program
 
-* `php_framework/public/views` - This folder contains the frontend files beside the index.php file that is located in the public directory - Every file in here that is rendered by some sort of backend work (i.e. using a database) should have a counter-part in the controllers folder that does the actual work
+Run the following commands in your terminal: 
 
-Set up/Installation
--------------------
-Simply download and run the setup.sh file. It'll get all the proper files and folders
+`wget phpwithme.mushaheedkapadia.com/installpwm`
+`./installpwm`
 
-`./setup`
+Create a Web Application
+------------------------
+After setting up pwm as stated above, to create your pwm project: 
 
+`pwm new <app_name>`
+
+This will go ahead an create all the folders and files you'll need to get started. 
+
+After creating the project, go ahead and cd in: 
+
+`cd <app_name>`
 
 Usage
 -----
-###To create a file: 
-`easybake/createfile [ -c ] <type of file: controller|model|stylesheet|script|view> <path to the file from there>`
-	
-Flag(s): 
+There are a series of commands that you can run via pwm 
 
- -c = create a counterpart controller/view file with your view/controller file 
+###Adding
+####Databases
+To add a database to your php application: 
+`pwm add db <type: MySQL|PostgreSQL> <name> <host> <port> <username> <password>`
 
-Example(s):
-
-`easybake/createfile stylesheet newcssfile.css`
-
-`easybake/createfile script me/like/folders/flashything.js`
-
-`easybake/createfile controller login.php`
-
-`easybake/createfile -c controller login.php`	 = creates a view file in `php_framework/public/views`
-
-###To add a database: 
-`easybake/adddb <type of database: MySQL|PostgreSQL> <database_name> <username> <password> <host> <port>`
-
-Example(s):  
-
-`easybake/adddb "MySQL" "myDB" "myUser" "myPass" "localhost" "1234"`
-
-###To add a library: 
-`easybake/addlib <absolute path to library file>`
-
-Example(s): 
-
-`easybake/addlib /home/usr/libraries/thisone.php`
-
-###To add fields to a model: 
-`Note:` These models must created using `easybake/createfile`
-
-`easybake/addfieldsto <relative path from models folder> <newfield1> [ <newfield2> ... <newfieldn> ]` 
-
-Example(s): 
-
-`easybake/addfieldsto user.php age height weight`
-
-`easybake/addfieldsto myobj.php shape`
-
-###To connect and query a database: 
-`Note:` Make sure the database you are trying to connect to was added by using `easybake/adddb`
-
-In you php script, which should be in the controller,
-
-		$dbobj = new database($dbname);
-
-		$dbobj->prepare($sqlstring);
-
-		$dbobj->execute();
-
-		while(($row = $dbobj->getNextRow()) !== false){
-			/* do stuff here	*/
-		}
-
-		$dbobj->close();
+####Libraries 
+To add an external library to your php applcation: 
+`pwm add lib <path/to/the/library>`
 
 
-Currently, only the following database types are supported (or rather tested): 
+###Creating
 
-* MySQL 
-* PostgreSQL
+###Editing
+
+###Removing
 
 Included External Libraries
 ---------------------------
@@ -118,6 +81,12 @@ Included External Libraries
 Version History
 ---------------
 [Version: 1.0](http://github.com/kapadiamush/phpwithme/tree/master#version-10 "Version 1.0") - Intial Release 
+[Version: 2.0](http://github.com/kapadiamush/phpwithme/tree/master#version-20 "Version 2.0") - PWM CORE RELEASE
+
+Version 2.0
+-----------
+In version 2, we introduced pwm - a core utility that removed the toolkit box of scripts. pwm allows the user to access all the various functions to create, edit, and remove features
+
 
 Version 1.0
 -----------

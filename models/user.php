@@ -1,7 +1,7 @@
 <?php
 require('scrypt.php');
 
-class User {
+abstract class User {
 	/** 
 	 * userId for the user
 	 */

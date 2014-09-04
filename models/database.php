@@ -4,7 +4,7 @@
    * database
    * Created by: Mushaheed Kapadia
    */
-class database {
+abstract class database {
 	
 	/* private fields for databases */
 	private $conn=null;
