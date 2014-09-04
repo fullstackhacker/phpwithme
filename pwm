@@ -208,23 +208,23 @@ then
 		echo "?>" >> "controllers/$filename"
 
 		# create the view file
-		echo "<!DOCTYPE>" >> "views/$filename"
-		echo "<html>" >> "viewss/$filename"
-		echo "  <head>" >> "views/$filename"
-		echo "    <!--title-->" >> "views/$filename" 
-		echo "    <title></title>" >> "views/$filename" 
-		echo "    <!--scripts-->" >> "views/$filename"
-		echo "    <!--stylesheets-->" >> "views/$filename"
-		echo "    <link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/reset.css\"" >> "views/$filename"
-		echo "  </head>" >> "controllers/$filename"
-		echo "  <body>" >> "controllers/$filename"
-		echo "  </body>" >> "controllers/$filename" 
-		echo "</html>" >> "controllers/$filename"
+		echo "<!DOCTYPE>" >> "public/views/$filename"
+		echo "<html>" >> "public/views/$filename"
+		echo "  <head>" >> "public/views/$filename"
+		echo "    <!--title-->" >> "public/views/$filename" 
+		echo "    <title></title>" >> "public/views/$filename" 
+		echo "    <!--scripts-->" >> "public/views/$filename"
+		echo "    <!--stylesheets-->" >> "public/views/$filename"
+		echo "    <link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/reset.css\"" >> "public/views/$filename"
+		echo "  </head>" >> "public/views/$filename"
+		echo "  <body>" >> "public/views/$filename"
+		echo "  </body>" >> "public/views/$filename" 
+		echo "</html>" >> "public/views/$filename"
 
 		echo "The files have been created in: " 
 		echo "  controllers/$filename" 
 		echo "  models/$filename"
-		echo "  views/$filename" 
+		echo "  public/views/$filename" 
 	fi
 
 
@@ -254,18 +254,18 @@ then
 		if [ $3 == '-v' ] 
 		then 
 			# create the view file
-			echo "<!DOCTYPE>" >> "views/$filename"
-			echo "<html>" >> "viewss/$filename"
-			echo "  <head>" >> "views/$filename"
-			echo "    <!--title-->" >> "views/$filename" 
-			echo "    <title></title>" >> "views/$filename" 
-			echo "    <!--scripts-->" >> "views/$filename"
-			echo "    <!--stylesheets-->" >> "views/$filename"
-			echo "    <link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/reset.css\"" >> "views/$filename"
-			echo "  </head>" >> "controllers/$filename"
-			echo "  <body>" >> "controllers/$filename"
-			echo "  </body>" >> "controllers/$filename" 
-			echo "</html>" >> "controllers/$filename"
+		echo "<!DOCTYPE>" >> "public/views/$filename"
+		echo "<html>" >> "public/views/$filename"
+		echo "  <head>" >> "public/views/$filename"
+		echo "    <!--title-->" >> "public/views/$filename" 
+		echo "    <title></title>" >> "public/views/$filename" 
+		echo "    <!--scripts-->" >> "public/views/$filename"
+		echo "    <!--stylesheets-->" >> "public/views/$filename"
+		echo "    <link type=\"text/css\" rel=\"stylesheet\" href=\"../stylesheets/reset.css\"" >> "public/views/$filename"
+		echo "  </head>" >> "public/views/$filename"
+		echo "  <body>" >> "public/views/$filename"
+		echo "  </body>" >> "public/views/$filename" 
+		echo "</html>" >> "public/views/$filename"
 		fi 
 	fi
 fi
@@ -288,7 +288,7 @@ then
 			exit
 		fi
 
-		if [ ! -a "views/$5.php" ]  #view file does not exit
+		if [ ! -a "public/views/$5.php" ]  #view file does not exit
 		then 
 			echo "View file does not exist"
 			exit
@@ -296,9 +296,9 @@ then
 	
 		#remove the file
 		rm "controllers/$5.php"	
-		rm "views/$5.php"
+		rm "public/views/$5.php"
 		echo "controllers/$5.php removed"
-		echo "views/$5.php removed"	
+		echo "public/views/$5.php removed"	
 		exit
 	fi
 	
@@ -322,7 +322,7 @@ then
 		fi
 
 
-		if [ ! -a "views/$filename" ] # view file doesn't exit
+		if [ ! -a "public/views/$filename" ] # view file doesn't exit
 		then 
 			echo " the view file doesn't exist"
 			exit
@@ -331,12 +331,12 @@ then
 		# remove the files
 		rm "models/$filename"
 		rm "controllers/$filename"
-		rm "views/$filename"
+		rm "public/views/$filename"
 
 		# boop print that shit
 		echo "models/$filename removed"
 		echo "controllers/$filename removed"
-		echo "views/$filename removed"
+		echo "public/views/$filename removed"
 	fi
 	
 	# user just wants to remove the controller file
