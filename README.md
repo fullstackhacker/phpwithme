@@ -85,7 +85,7 @@ Version History
 
 Version 2.0
 -----------
-In version 2, we introduced pwm - a core utility that removed the toolkit box of scripts. 
+In version 2, we introduced pwm - a core utility that removed the toolkit box of scripts. pwm allows the user to access all the various functions to create, edit, and remove features
 
 
 Version 1.0

@@ -18,7 +18,6 @@ then
 	echo "new - create a new php applicaiton" 
 	echo "add - add a database, library to the application" 
 	echo "create - allows you to create different features of the application" 
-	echo "update - allows you to update different features of the application"
 	echo "delete - allows you to delete different features of the application" 
 fi
 
@@ -271,4 +270,90 @@ then
 	fi
 fi
 
+if [ $2 == "remove" ]
+then 
+	if [ $3 == '-h' ] 
+	then 
+		echo "pwm remove <model | feature> [ -v ] <filename>"
+	fi
+	
+	# file only exists with a view
+	if [ $3 == "feature" && $4 == "-v" ] 
+	then
 
+		# check if the files exist or not
+		if [ ! -a "controllers/$5.php" ]  # controller file does not exit
+		then 
+			echo " Controller File does not exit!"
+			exit
+		fi
+
+		if [ ! -a "views/$5.php" ]  #view file does not exit
+		then 
+			echo "View file does not exist"
+			exit
+		fi
+	
+		#remove the file
+		rm "controllers/$5.php"	
+		rm "views/$5.php"
+		echo "controllers/$5.php removed"
+		echo "views/$5.php removed"	
+		exit
+	fi
+	
+	filename="$4.php"
+	
+	# user wants to remove a model
+	if [ $3 == "model" ] 
+	then 
+
+		#check if the model/controller/view file exists
+		if [ ! -a "models/$filename" ]  # model file doesn't exist
+		then 
+			echo "The model file does not exist" 
+			exit
+		fi 
+	
+		if [ ! -a "controllers/$filename" ] # controller file doesn't exist
+		then 
+			echo "The controller file doesn't exist"
+			exit
+		fi
+
+
+		if [ ! -a "views/$filename" ] # view file doesn't exit
+		then 
+			echo " the view file doesn't exist"
+			exit
+		fi
+	
+		# remove the files
+		rm "models/$filename"
+		rm "controllers/$filename"
+		rm "views/$filename"
+
+		# boop print that shit
+		echo "models/$filename removed"
+		echo "controllers/$filename removed"
+		echo "views/$filename removed"
+	fi
+	
+	# user just wants to remove the controller file
+	if [ $3 == "feature" ] 
+	then 
+
+		#check if the file exist
+		if [ ! -a "controllers/$filename" ] # the controller file doesn't exist
+	 	then 
+			echo "The controller file does not exist"
+			exit
+		fi
+		
+		#remove the files
+		rm "controllers/$filename"
+
+		#tell the user its gone
+		echo "controllers/$filename removed"
+	fi
+fi
