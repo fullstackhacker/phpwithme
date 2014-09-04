@@ -16,7 +16,7 @@ then
 	echo "FLAGS:"
 	echo "-h - displays this dialogue" 
 	echo "new - create a new php applicaiton" 
-	echo "add - add a database or library to the application" 
+	echo "add - add a database, library to the application" 
 	echo "create - allows you to create different features of the application" 
 	echo "update - allows you to update different features of the application"
 	echo "delete - allows you to delete different features of the application" 
@@ -270,3 +270,5 @@ then
 		fi 
 	fi
 fi
+
+
